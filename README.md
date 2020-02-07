@@ -15,8 +15,7 @@ Once we start our image with the following command it becomes a container <br/>
 * using a "nameless" volume (docker run -v /container/path) will create a new volume, and copy the contents of /container/path into that volume
 * using a "named" volume (docker run -v somename:/container/path) will create a new volume, named "somename", or use 
 the existing "somename" volume, and use the files that are present inside that volume. If the volume is newly created, 
-it will be empty. This behavior is still under discussion in #18670 <br/>
-<br/>
+it will be empty. <br/>
 `docker run --rm -it -v C:/go-work/src/github.com/service_template/:go/src/service_template golang:alpine /bin/sh`
 
 ####3. Docker ports
@@ -53,6 +52,17 @@ network modes:
 4. Open a new terminal and do a curl request to the service in the specified network (i.e. "testnetwork") <br/>
 `docker run --rm --network=testnetwork appropriate/curl:latest curl -i -XPOST server_a:8080/product -d "{\"product\":\"Nike\"}"` 
 
+####5. Running the Dockerfile
+1. Build the image: <br/>
+`docker build ./ -t imagename`
+2. Create container from the image <br/>
+`docker run -p 8080:8080 imagename`
+3. Do POST request to `localhost:8080/product` with the body `{"product": "some product"}`. <br/>
+You should get the response: `{"message":"new product name: new product","date":"","id":"0"}`
+
+NOTE: If you requests fail in Windows machines then you can check in the Oracle WM if guest ports are linked to the ones in the host. 
+Go to VM's settings (usually with the general name "default") -> Network -> Advanced -> Port Forwarding -> Adds new port forwarding rule 
+-> put `Host IP` 127.0.0.1 and `Host port` 8080, also add `Guest port` 8080
 
 ####5. Writing Dockerfiles
 

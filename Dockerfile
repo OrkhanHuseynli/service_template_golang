@@ -8,10 +8,11 @@ WORKDIR /app
 RUN ls
 COPY ./ ./
 WORKDIR /app/src
-RUN echo "******** LIST DIR ************"
+RUN echo " ******** LIST DIR ******** "
 RUN ls
-RUN echo "******** RUN BUILD ************"
+RUN echo " ******** RUN BUILD ******** "
 RUN go build main.go
+RUN echo " ******** LIST DIR AFTER BUILD ******** "
 RUN ls
 EXPOSE 8080
-ENTRYPOINT ["/main"]
+ENTRYPOINT ["./main"]
