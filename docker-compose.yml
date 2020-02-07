@@ -1,0 +1,17 @@
+version: "3"
+services:
+  serviceExample:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        SERVICE_NAME: serviceHostname
+    image: service_image
+    hostname: serviceHostname
+    ports:
+      - "8080:8080"
+  curl:
+    image: appropriate/curl
+    depends_on:
+      - serviceExample
+    entrypoint: sh -c "sleep 3 && curl -XPOST serviceHostname:8080/product -d '{\"prouct\":\"Lacoste\"}'"

@@ -9,7 +9,7 @@ Once we start our image with the following command it becomes a container <br/>
 `docker start -i [container-id]`
 * Type a linux command, i.e. `ls` to list all files/folders inside the current directory of the container
 #### 2. Adding  Volumes
-* bind mounting a host-directory in a container (docker run -v /some/host/dir/:/container/path/) uses the files that are
+* bind mounting a host-directory in a container (`docker run -v /some/host/dir/:/container/path/`) uses the files that are
  present on the host. If the host-directory doesn't exist, a new, empty directory is created on the host and mounted in 
  the container (this will change in future, and an error is shown in stead)
 * using a "nameless" volume (docker run -v /container/path) will create a new volume, and copy the contents of /container/path into that volume
@@ -63,6 +63,20 @@ You should get the response: `{"message":"new product name: new product","date":
 NOTE: If you requests fail in Windows machines then you can check in the Oracle WM if guest ports are linked to the ones in the host. 
 Go to VM's settings (usually with the general name "default") -> Network -> Advanced -> Port Forwarding -> Adds new port forwarding rule 
 -> put `Host IP` 127.0.0.1 and `Host port` 8080, also add `Guest port` 8080
+
+#### 6. docker-compose 
+Inside `docker-compose.yml` file you can define services that will
+make up your application. In example, we are describing two services:
+our example code that we have just built and the second is a simple service that curls
+this API.
+
+To avoid conflicts when starting a stack, we can pass -p projectname to the docker-compose up 
+command; this will prefix the name of any of our containers with the specified project name.
+
+To remove any stopped container that you have started with dockercompose,
+we can use the particular compose command rm and pass the -v argument to
+remove any associated volumes: <br/>
+`docker-compose rm -v`
 
 #### Appendix
 
