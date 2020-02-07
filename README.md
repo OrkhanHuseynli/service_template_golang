@@ -64,9 +64,10 @@ NOTE: If you requests fail in Windows machines then you can check in the Oracle 
 Go to VM's settings (usually with the general name "default") -> Network -> Advanced -> Port Forwarding -> Adds new port forwarding rule 
 -> put `Host IP` 127.0.0.1 and `Host port` 8080, also add `Guest port` 8080
 
-####5. Writing Dockerfiles
+####Appendix
 
-####5.1 go versions <=1.1
+#####1. Go Build
+#####1.1 go versions <=1.1
 `CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -installsuffix cgo -ldflags '-s' -o server` <br/>
 * `CGO_ENABLED=0`  Cgo enables the creation of Go packages that call C code. By setting it to `0`, we make it unavailable. 
 *  `GOARCH=386` This is pronounced “gore-ch”, and stands for Go Architecture. 
@@ -83,5 +84,5 @@ Go to VM's settings (usually with the general name "default") -> Network -> Adva
  systems it is to run on must have a copy of all the required libraries. 
  For more info read ["Static and Dynamic Libraries"](https://www.geeksforgeeks.org/static-vs-dynamic-libraries/). 
  
- ####5.1 go versions > 1.1
+ #####1.2 go versions > 1.1
 `GOOS=linux GOARCH=386 go build -a -ldflags '-s' -o server` <br/>
