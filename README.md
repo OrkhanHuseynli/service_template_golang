@@ -1,5 +1,5 @@
-##Docker 
-#####NOTE: Commands and instructions below are valid for Windows machines
+## Docker <br/>
+##### NOTE: Commands and instructions below are valid for Windows machines
 ####1. Basic commands
 #####1.1. Use the --rm flag to keep our filesystem clean after we stop our container. <br/>
 Once we start our image with the following command it becomes a container <br/>
