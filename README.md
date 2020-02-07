@@ -1,14 +1,14 @@
 ## Docker <br/>
 ##### NOTE: Commands and instructions below are valid for Windows machines
-####1. Basic commands
-#####1.1. Use the --rm flag to keep our filesystem clean after we stop our container. <br/>
+#### 1. Basic commands
+##### 1.1. Use the --rm flag to keep our filesystem clean after we stop our container. <br/>
 Once we start our image with the following command it becomes a container <br/>
 
  `docker start -i --rm [image-name] sh`
-#####1.2 Start a sleeping container interactively <br/>
+##### 1.2 Start a sleeping container interactively <br/>
 `docker start -i [container-id]`
 * Type a linux command, i.e. `ls` to list all files/folders inside the current directory of the container
-####2. Adding  Volumes
+#### 2. Adding  Volumes
 * bind mounting a host-directory in a container (docker run -v /some/host/dir/:/container/path/) uses the files that are
  present on the host. If the host-directory doesn't exist, a new, empty directory is created on the host and mounted in 
  the container (this will change in future, and an error is shown in stead)
@@ -18,7 +18,7 @@ the existing "somename" volume, and use the files that are present inside that v
 it will be empty. <br/>
 `docker run --rm -it -v C:/go-work/src/github.com/service_template/:go/src/service_template golang:alpine /bin/sh`
 
-####3. Docker ports
+#### 3. Docker ports
 Note: `pwd` is a source path for the app <br>
 
 `docker run -it --rm -v $(pwd):/src -w /src -p 8080:8080 golang:alpine /bin/sh`
@@ -33,7 +33,7 @@ this takes a pair of values separated by a colon (:). The first is the destinati
 host that we would like to bind to the second is the source port on the Docker container to
 which our application is bound.
 
-####4. Docker networking
+#### 4. Docker networking
 
 By default, Docker supports the following
 network modes:
@@ -42,7 +42,7 @@ network modes:
 * none
 * overlay
 
-#####4.1 Connect docker to the custom network
+##### 4.1 Connect docker to the custom network
 1. Create network <br/>
 `docker network create testnetwork`<br/>
 2. Attach your service to the network <br/>
@@ -52,7 +52,7 @@ network modes:
 4. Open a new terminal and do a curl request to the service in the specified network (i.e. "testnetwork") <br/>
 `docker run --rm --network=testnetwork appropriate/curl:latest curl -i -XPOST server_a:8080/product -d "{\"product\":\"Nike\"}"` 
 
-####5. Running the Dockerfile
+#### 5. Running the Dockerfile
 1. Build the image: <br/>
 `docker build ./ -t imagename`
 2. Create container from the image <br/>
@@ -64,10 +64,10 @@ NOTE: If you requests fail in Windows machines then you can check in the Oracle 
 Go to VM's settings (usually with the general name "default") -> Network -> Advanced -> Port Forwarding -> Adds new port forwarding rule 
 -> put `Host IP` 127.0.0.1 and `Host port` 8080, also add `Guest port` 8080
 
-####Appendix
+#### Appendix
 
-#####1. Go Build
-#####1.1 go versions <=1.1
+##### 1. Go Build
+##### 1.1 go versions <=1.1
 `CGO_ENABLED=0 GOOS=linux GOARCH=386 go build -a -installsuffix cgo -ldflags '-s' -o server` <br/>
 * `CGO_ENABLED=0`  Cgo enables the creation of Go packages that call C code. By setting it to `0`, we make it unavailable. 
 *  `GOARCH=386` This is pronounced “gore-ch”, and stands for Go Architecture. 
@@ -84,5 +84,5 @@ Go to VM's settings (usually with the general name "default") -> Network -> Adva
  systems it is to run on must have a copy of all the required libraries. 
  For more info read ["Static and Dynamic Libraries"](https://www.geeksforgeeks.org/static-vs-dynamic-libraries/). 
  
- #####1.2 go versions > 1.1
+ ##### 1.2 go versions > 1.1
 `GOOS=linux GOARCH=386 go build -a -ldflags '-s' -o server` <br/>
