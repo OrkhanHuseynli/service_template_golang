@@ -70,10 +70,19 @@ make up your application. In example, we are describing two services:
 our example code that we have just built and the second is a simple service that curls
 this API.
 
-To avoid conflicts when starting a stack, we can pass -p projectname to the docker-compose up 
+By default Compose sets up a single network for your app. Each container for a service joins the default network and 
+is both reachable by other containers on that network, and <b> discoverable by them at a hostname identical to the container name.</b>
+
+To avoid conflicts when starting a stack, we can pass `-p projectname` to the docker-compose up 
 command; this will prefix the name of any of our containers with the specified project name.
 
-To remove any stopped container that you have started with dockercompose,
+To start all services defined in `docker-compose.yaml` file, run: <br/>
+ `docker-compose up` 
+
+To stop containers and removes containers, networks, volumes, and images created by up, run: <br/>
+`docker-compose down`
+
+Also, to remove any stopped container that you have started with dockercompose,
 we can use the particular compose command rm and pass the -v argument to
 remove any associated volumes: <br/>
 `docker-compose rm -v`
