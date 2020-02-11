@@ -3,8 +3,9 @@ package handlers
 import (
 	"context"
 	"encoding/json"
-	"github.com/microservice_template/src/models"
 	"net/http"
+
+	"github.com/microservice_template/src/models"
 )
 
 type ServiceHandler struct {
