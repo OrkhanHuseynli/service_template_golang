@@ -1,11 +1,11 @@
 package core
 
 import (
+	"github.com/microservice_template/src/handlers"
+	
 	"fmt"
 	"log"
 	"net/http"
-
-	"github.com/microservice_template/src/handlers"
 )
 
 type App struct {
