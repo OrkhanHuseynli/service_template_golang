@@ -10,4 +10,4 @@ Feature: As a user when I call the service endpoint for "product", I would like 
   Scenario: Valid query
     Given I have a valid product criteria
     When I call the product endpoint
-    Then I should a json response with a corresponding message
+    Then I should receive a json response with a corresponding message
