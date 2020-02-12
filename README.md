@@ -1,4 +1,12 @@
-## Docker <br/>
+## Golang
+#### Run
+`go run ./src/main.go`
+#### Build
+`go build ./src/main.go`
+#### Tests
+`go test -cover ./...`
+
+## Docker 
 ##### NOTE: Commands and instructions below are valid for Windows machines
 #### 1. Basic commands
 ##### 1.1. Use the --rm flag to keep our filesystem clean after we stop our container. <br/>
