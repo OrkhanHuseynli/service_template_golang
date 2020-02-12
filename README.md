@@ -6,6 +6,8 @@
 #### Tests
 `go test -cover ./...` <br/>
 `go test ./... -bench=. -benchmem` <br/>
+#### Profiling
+The address to the profiling page: `http://localhost:8080/debug/pprof/`
 
 ## Docker 
 ##### NOTE: Commands and instructions below are valid for Windows machines
