@@ -1,4 +1,4 @@
-@search
+@service
 Feature: As a user when I call the service endpoint for "product", I would like to receive a json response with
   a corresponding message
 
