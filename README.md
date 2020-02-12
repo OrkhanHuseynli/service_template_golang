@@ -4,7 +4,8 @@
 #### Build
 `go build ./src/main.go`
 #### Tests
-`go test -cover ./...`
+`go test -cover ./...` <br/>
+`go test ./... -bench=. -benchmem` <br/>
 
 ## Docker 
 ##### NOTE: Commands and instructions below are valid for Windows machines
