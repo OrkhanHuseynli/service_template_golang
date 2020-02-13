@@ -97,6 +97,10 @@ Also, to remove any stopped container that you have started with dockercompose,
 we can use the particular compose command rm and pass the -v argument to
 remove any associated volumes: <br/>
 `docker-compose rm -v`
+<br/>
+
+Remove all containers: <br/>
+`docker container prune`
 
 #### Appendix
 
