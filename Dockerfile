@@ -7,11 +7,13 @@ MAINTAINER https://github.com/OrkhanHuseynli
 WORKDIR /app
 RUN ls
 COPY ./ ./
+RUN echo " ******** LIST DIR AFTER COPY ******** "
+RUN ls
 WORKDIR /app/src
-RUN echo " ******** LIST DIR ******** "
+RUN echo " ******** LIST DIR IN src ******** "
 RUN ls
 RUN echo " ******** RUN BUILD ******** "
-RUN go build main.go
+RUN go build -mod=vendor main.go
 RUN echo " ******** LIST DIR AFTER BUILD ******** "
 RUN ls
 EXPOSE 8080

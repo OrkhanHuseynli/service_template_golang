@@ -2,7 +2,10 @@
 #### Run
 `go run ./src/main.go`
 #### Build
-`go build ./src/main.go`
+`go mod tidy` <br/>
+`go mod vendor` <br/>
+`go build -mod=vendor ./src/main.go`
+
 #### Tests
 `go test -cover ./...` <br/>
 `go test ./... -bench=. -benchmem` <br/>
